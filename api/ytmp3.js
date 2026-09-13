@@ -38,6 +38,8 @@ module.exports = async (req, res) => {
         channel: data.result.channel,
         thumbnail: data.result.thumbnail,
         type: 'audio',
+        format: data.result.audioFormat || 'm4a',
+        note: 'File audio asli dari YouTube (bukan konversi MP3), format mengikuti field "format" di atas',
         url: data.result.audio
       }
     });

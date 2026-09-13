@@ -39,6 +39,7 @@ module.exports = async (req, res) => {
         thumbnail: data.result.thumbnail,
         quality: data.result.quality,
         type: 'video',
+        format: data.result.videoFormat || 'mp4',
         url: data.result.video
       }
     });
