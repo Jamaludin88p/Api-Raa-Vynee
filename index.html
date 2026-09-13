@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>zuradev.tools — Ambil videonya, skip basa-basinya</title>
+<meta name="description" content="Tempel tautan TikTok atau YouTube, pilih format, langsung unduh." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="topbar">
+    <span class="brand">zuradev<span class="brand-dot">.</span>tools</span>
+    <span class="topbar-note">tiktok &amp; youtube</span>
+  </header>
+
+  <main class="stage">
+
+    <section class="hero">
+      <h1 class="headline">
+        Ambil videonya.<br>
+        Skip basa-basinya.
+      </h1>
+      <p class="sub">
+        Tempel tautan TikTok atau YouTube, pilih format yang kamu mau,
+        server yang urus sisanya. Tanpa watermark, tanpa iklan tambahan.
+      </p>
+
+      <form class="grabber" id="grabberForm" autocomplete="off">
+        <label for="urlInput" class="field-label">tautan</label>
+        <div class="input-row">
+          <span class="prompt">&gt;</span>
+          <input
+            id="urlInput"
+            name="url"
+            type="url"
+            inputmode="url"
+            placeholder="tempel link tiktok atau youtube di sini"
+            required
+          />
+        </div>
+
+        <div class="format-row" id="formatRow" hidden>
+          <span class="field-label">format</span>
+          <div class="format-options">
+            <label class="format-pill">
+              <input type="radio" name="format" value="mp4" checked>
+              <span>MP4 — video</span>
+            </label>
+            <label class="format-pill">
+              <input type="radio" name="format" value="mp3">
+              <span>MP3 — audio</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="cta" id="ctaButton">Proses tautan</button>
+      </form>
+
+      <p class="support-line">Didukung sekarang: TikTok · YouTube</p>
+    </section>
+
+    <section class="console-panel" aria-live="polite">
+      <div class="console-head">
+        <span class="console-dot"></span>
+        <span class="console-title">status</span>
+      </div>
+      <div class="console-body" id="consoleBody">
+        <p class="console-idle">menunggu tautan…</p>
+      </div>
+
+      <div class="result-card" id="resultCard" hidden>
+        <img id="resultThumb" class="result-thumb" alt="" hidden>
+        <div class="result-info">
+          <p class="result-title" id="resultTitle"></p>
+          <p class="result-meta" id="resultMeta"></p>
+        </div>
+        <a class="download-btn" id="downloadBtn" href="#" target="_blank" rel="noopener">Unduh sekarang</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <span>dibangun oleh ZuraDev</span>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
