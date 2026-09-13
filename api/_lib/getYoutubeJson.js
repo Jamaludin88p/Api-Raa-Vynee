@@ -76,7 +76,9 @@ async function getYoutubeJson(url) {
         thumbnail: info.thumbnail || '',
         quality: bestVideo.height ? `${bestVideo.height}p` : 'HD',
         video: videoUrl,
-        audio: audioUrl
+        videoFormat: videoId ? videoExt : '',
+        audio: audioUrl,
+        audioFormat: audioId ? audioExt : ''
       }
     };
   } catch (error) {
