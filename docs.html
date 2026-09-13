@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dokumentasi — zuradev.tools</title>
+<meta name="description" content="Dokumentasi API downloader TikTok & YouTube." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<div class="docs-wrap">
+
+  <header class="docs-topbar">
+    <button class="icon-btn" id="sidebarToggle" aria-label="Buka daftar isi">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><line x1="9" y1="4" x2="9" y2="20" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+    <span class="docs-title">DOKUMENTASI</span>
+    <div class="docs-topbar-actions">
+      <a class="icon-btn" href="index.html" aria-label="Kembali ke tool">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l1.5-7h13L20 12M4 12v7a1 1 0 001 1h3v-5h8v5h3a1 1 0 001-1v-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="icon-btn" id="themeToggle" aria-label="Ganti tema">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8 8 0 1110.5 4a6.2 6.2 0 009.5 10.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="toc" id="tocPanel" hidden>
+    <a href="#overview">Overview</a>
+    <a href="#tiktok">TikTok</a>
+    <a href="#youtube">YouTube</a>
+  </nav>
+
+  <main class="docs-main">
+
+    <section id="overview" class="intro">
+      <h1 class="api-name">ZURADEV API <span class="version">1.0.0</span></h1>
+      <p class="lede">
+        API scraping TikTok dan YouTube yang ringan, cepat, dan gampang
+        diintegrasikan ke bot atau aplikasi kamu sendiri.
+      </p>
+
+      <div class="stats-box">
+        <div class="stat">
+          <span class="stat-label">categories</span>
+          <span class="stat-value">2</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">endpoints</span>
+          <span class="stat-value accent">3</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="category-grid">
+
+      <a href="#tiktok" class="category-card is-highlighted">
+        <div class="category-top">
+          <span class="folder-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 7a1 1 0 011-1h5l2 2h9a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1V7z" fill="#e8b93d"/></svg>
+          </span>
+          <span class="open-label">open <span class="arrow">→</span></span>
+        </div>
+        <p class="category-name">TikTok</p>
+        <p class="category-count">1 endpoint</p>
+        <code class="category-path">/api/tiktok</code>
+      </a>
+
+      <a href="#youtube" class="category-card">
+        <div class="category-top">
+          <span class="folder-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 7a1 1 0 011-1h5l2 2h9a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1V7z" fill="#e8b93d"/></svg>
+          </span>
+          <span class="open-label">open <span class="arrow">→</span></span>
+        </div>
+        <p class="category-name">YouTube</p>
+        <p class="category-count">2 endpoints</p>
+        <code class="category-path">/api/yt</code>
+      </a>
+
+    </section>
+
+    <!-- ================= TikTok ================= -->
+    <section id="tiktok" class="endpoint-group">
+      <h2 class="group-title">TikTok</h2>
+
+      <article class="endpoint">
+        <div class="endpoint-head">
+          <span class="method">GET</span>
+          <code class="path">/api/tiktok</code>
+        </div>
+        <p class="endpoint-desc">
+          Ambil video (atau slide foto) TikTok tanpa watermark, lengkap dengan link audio.
+        </p>
+
+        <table class="params-table">
+          <thead>
+            <tr><th>parameter</th><th>tipe</th><th>wajib</th><th>keterangan</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>url</code></td><td>string</td><td>ya</td><td>link video TikTok</td></tr>
+          </tbody>
+        </table>
+
+        <p class="block-label">contoh request</p>
+        <pre class="code-block"><code>GET https://zuradev.tools/api/tiktok?url=https://vt.tiktok.com/xxxxx</code></pre>
+
+        <p class="block-label">contoh response</p>
+        <pre class="code-block"><code>{
+  "status": true,
+  "creator": "Web API Scraper",
+  "result": {
+    "title": "judul video",
+    "author": "nama author",
+    "username": "@username",
+    "type": "video",
+    "video": "https://...",
+    "audio": "https://..."
+  }
+}</code></pre>
+      </article>
+    </section>
+
+    <!-- ================= YouTube ================= -->
+    <section id="youtube" class="endpoint-group">
+      <h2 class="group-title">YouTube</h2>
+
+      <article class="endpoint">
+        <div class="endpoint-head">
+          <span class="method">GET</span>
+          <code class="path">/api/ytmp4</code>
+        </div>
+        <p class="endpoint-desc">
+          Ambil link download video YouTube kualitas terbaik yang tersedia.
+        </p>
+
+        <table class="params-table">
+          <thead>
+            <tr><th>parameter</th><th>tipe</th><th>wajib</th><th>keterangan</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>url</code></td><td>string</td><td>ya</td><td>link video YouTube</td></tr>
+          </tbody>
+        </table>
+
+        <p class="block-label">contoh request</p>
+        <pre class="code-block"><code>GET https://zuradev.tools/api/ytmp4?url=https://youtu.be/xxxxx</code></pre>
+
+        <p class="block-label">contoh response</p>
+        <pre class="code-block"><code>{
+  "status": true,
+  "creator": "Web API Scraper",
+  "result": {
+    "title": "judul video",
+    "duration": "213 detik",
+    "channel": "nama channel",
+    "thumbnail": "https://...",
+    "quality": "1080p",
+    "type": "video",
+    "url": "https://..."
+  }
+}</code></pre>
+      </article>
+
+      <article class="endpoint">
+        <div class="endpoint-head">
+          <span class="method">GET</span>
+          <code class="path">/api/ytmp3</code>
+        </div>
+        <p class="endpoint-desc">
+          Ambil link download audio (MP3/M4A) dari video YouTube.
+        </p>
+
+        <table class="params-table">
+          <thead>
+            <tr><th>parameter</th><th>tipe</th><th>wajib</th><th>keterangan</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>url</code></td><td>string</td><td>ya</td><td>link video YouTube</td></tr>
+          </tbody>
+        </table>
+
+        <p class="block-label">contoh request</p>
+        <pre class="code-block"><code>GET https://zuradev.tools/api/ytmp3?url=https://youtu.be/xxxxx</code></pre>
+
+        <p class="block-label">contoh response</p>
+        <pre class="code-block"><code>{
+  "status": true,
+  "creator": "Web API Scraper",
+  "result": {
+    "title": "judul video",
+    "duration": "213 detik",
+    "channel": "nama channel",
+    "thumbnail": "https://...",
+    "type": "audio",
+    "url": "https://..."
+  }
+}</code></pre>
+      </article>
+    </section>
+
+    <footer class="docs-foot">
+      <span>dibangun oleh ZuraDev</span>
+      <span class="dot">·</span>
+      <span>tidak perlu apikey</span>
+    </footer>
+
+  </main>
+</div>
+
+<script src="docs.js"></script>
+</body>
+</html>
