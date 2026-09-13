@@ -112,7 +112,8 @@ function renderResult(platform, format, result) {
       ? (result.images && result.images[0]) || result.video
       : result.video;
   } else {
-    meta = [result.channel, result.duration].filter(Boolean).join(' · ');
+    const formatLabel = result.format ? `.${result.format}` : '';
+    meta = [result.channel, result.duration, formatLabel].filter(Boolean).join(' · ');
     downloadUrl = result.url;
     thumb = result.thumbnail;
   }

@@ -161,6 +161,7 @@
     "thumbnail": "https://...",
     "quality": "1080p",
     "type": "video",
+    "format": "mp4",
     "url": "https://..."
   }
 }</code></pre>
@@ -172,7 +173,10 @@
           <code class="path">/api/ytmp3</code>
         </div>
         <p class="endpoint-desc">
-          Ambil link download audio (MP3/M4A) dari video YouTube.
+          Ambil link download audio dari video YouTube. File yang didapat adalah
+          audio asli dari YouTube (biasanya <code>.webm</code> atau <code>.m4a</code>),
+          bukan hasil konversi ke MP3 — cek field <code>format</code> di response
+          untuk tahu ekstensi aslinya.
         </p>
 
         <table class="params-table">
@@ -197,6 +201,8 @@
     "channel": "nama channel",
     "thumbnail": "https://...",
     "type": "audio",
+    "format": "webm",
+    "note": "File audio asli dari YouTube (bukan konversi MP3)",
     "url": "https://..."
   }
 }</code></pre>
